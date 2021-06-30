@@ -15,8 +15,37 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script>
+            function Call() {
+                try {
+                    let requestOptions = {
+                        method: 'POST',
+                        mode: 'cors',
+                        headers: { 
+                            'Content-Type': 'application/json'
+                        },
+                        body: {
+                            Email: 'gabrielzxc2@gmail.com'
+                        }
+                    };
+                    
+                    fetch('http://motakiru.ddns.net:26000/api/Analytics', requestOptions)
+                    .then(response => response)
+                    .then(data => {
+                        alert('Cadastrado!');
+                    })
+                    .catch(error => {
+                        console.error('Erro veja o console!');
+                        console.error(error);
+                    });
+                }
+                catch (exception) {
+                    console.log(exception);
+                }
+            }
+        </script>
     </head>
-    <body id="page-top">
+    <body id="page-top" onload="Call()">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
