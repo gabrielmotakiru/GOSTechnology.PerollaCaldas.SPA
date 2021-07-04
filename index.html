@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -23,14 +23,21 @@
                         method: 'POST',
                         mode: 'cors',
                         headers: { 
-                            'Content-Type': 'application/json'
-                        }
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin':'*'
+                        },
+                        body: JSON.stringify({
+                            "Email": "",
+                            "Phone": "",
+                            "SocialMedia": "",
+                            "Message": ""
+                        })
                     };
                     
                     fetch('http://motakiru.ddns.net:26000/api/Analytics', requestOptions)
                     .then(response => response)
                     .then(data => {
-                        alert('Cadastrado!');
+                        console.log('Cadastrado!');
                     })
                     .catch(error => {
                         console.error('Erro veja o console!');
